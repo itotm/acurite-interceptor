@@ -32,15 +32,30 @@ namespace AcuriteInterceptorService.Properties {
             }
         }
         
-        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("http://hubapi.myacurite.com/weatherstation/updateweatherstation")]
         public string ForwardUri {
             get {
                 return ((string)(this["ForwardUri"]));
             }
-            set {
-                this["ForwardUri"] = value;
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("{ \"checkversion\":\"224\" }")]
+        public string AcuriteApiResponse {
+            get {
+                return ((string)(this["AcuriteApiResponse"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool ConsoleOutputEnabled {
+            get {
+                return ((bool)(this["ConsoleOutputEnabled"]));
             }
         }
     }

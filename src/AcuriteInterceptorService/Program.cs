@@ -6,6 +6,7 @@ using System.Linq;
 using System.Reflection;
 using System.ServiceProcess;
 using System.Threading;
+using AcuriteInterceptorService.Properties;
 
 namespace AcuriteInterceptorService
 {

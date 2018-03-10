@@ -7,6 +7,7 @@ using System.Linq;
 using System.ServiceProcess;
 using System.Text;
 using System.Threading.Tasks;
+using AcuriteInterceptorService.Properties;
 
 namespace AcuriteInterceptorService
 {
@@ -21,7 +22,7 @@ namespace AcuriteInterceptorService
 
 		protected override void OnStart(string[] args)
 		{
-			var _wrapper = new WebAppWrapper().Start();
+			_wrapper = new WebAppWrapper().Start();
 		}
 
 		protected override void OnStop()
