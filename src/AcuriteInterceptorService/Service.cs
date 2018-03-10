@@ -12,6 +12,8 @@ namespace AcuriteInterceptorService
 {
 	partial class AcuriteInterceptor : ServiceBase
 	{
+		private WebAppWrapper _wrapper;
+
 		public AcuriteInterceptor()
 		{
 			InitializeComponent();
@@ -19,12 +21,12 @@ namespace AcuriteInterceptorService
 
 		protected override void OnStart(string[] args)
 		{
-			// TODO: Add code here to start your service.
+			var _wrapper = new WebAppWrapper().Start();
 		}
 
 		protected override void OnStop()
 		{
-			// TODO: Add code here to perform any tear-down necessary to stop your service.
+			_wrapper.Dispose();
 		}
 	}
 }
