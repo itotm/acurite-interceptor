@@ -11,19 +11,19 @@ namespace AcuriteInterceptorService
 	{
 		private const decimal MIN2Millibar = 33.8637526m;
 
-		[NotMapped] public string dateutc { get; set; }
-		[NotMapped] public string action { get; set; }
-		[NotMapped] public string realtime { get; set; }
-		[NotMapped] public string id { get; set; }
-		[NotMapped] public string mt { get; set; }
+		[NotMapped] public string DateUtc { get; set; }
+		[NotMapped] public string Action { get; set; }
+		[NotMapped] public string Realtime { get; set; }
+		[NotMapped] public string Id { get; set; }
+		[NotMapped] public string Mt { get; set; }
 		public string Sensor { get; set; }
 		public decimal Humidity { get; set; }
-		[NotMapped] public decimal tempf { get; set; }
-		[NotMapped] public decimal baromin { get; set; }
+		[NotMapped] public decimal TempF { get; set; }
+		[NotMapped] public decimal BaromIn { get; set; }
 		public string Battery { get; set; }
 		public int Rssi { get; set; }
 		
-		public decimal Temperature { get => (tempf - 32) * 5 / 9; set => tempf = value * 9 / 5 + 32; }
-		public decimal Pressure { get => baromin * MIN2Millibar; set => baromin = value / MIN2Millibar; }
+		public decimal Temperature { get => (TempF - 32) * 5 / 9; set => TempF = value * 9 / 5 + 32; }
+		public decimal Pressure { get => BaromIn * MIN2Millibar; set => BaromIn = value / MIN2Millibar; }
 	}
 }
