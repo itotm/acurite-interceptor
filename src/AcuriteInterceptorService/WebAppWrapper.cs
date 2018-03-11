@@ -10,6 +10,7 @@ namespace AcuriteInterceptorService
 
 		public WebAppWrapper Start()
 		{
+			// netsh http add urlacl url=http://+:80/ user=DOMAIN\USER
 			_webapp = WebApp.Start<Startup>(url: "http://+:80/");
 			return this;
 		}

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Net.Http;
@@ -12,6 +13,8 @@ namespace AcuriteInterceptorService
 	[Route("weatherstation/updateweatherstation")]
 	public class InterceptorController : ApiController
 	{
+		private static Dictionary<string, DateTime> _counters = new Dictionary<string, DateTime>();
+
 		public IHttpActionResult Get([FromUri]SensorData data)
 		{
 			if (Settings.Default.ConsoleOutputEnabled)
@@ -27,10 +30,19 @@ namespace AcuriteInterceptorService
 				//Console.WriteLine(response.Result.Content.ReadAsStringAsync().Result);
 			}
 
-			using (var db = new WeatherDbContext())
+			if (Settings.Default.DatabaseEnabled)
 			{
-				db.SensorDatas.Add(data);
-				db.SaveChanges();
+				var now = DateTime.Now;
+				if (!_counters.ContainsKey(data.Sensor)
+					|| (now - _counters[data.Sensor]).TotalSeconds > Settings.Default.FilterOutSeconds)
+				{
+					_counters[data.Sensor] = now;
+					using (var db = new WeatherDbContext())
+					{
+						db.SensorDatas.Add(data);
+						db.SaveChanges();
+					}
+				}
 			}
 
 			return Ok(Settings.Default.AcuriteApiResponse);

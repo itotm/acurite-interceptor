@@ -58,5 +58,23 @@ namespace AcuriteInterceptorService.Properties {
                 return ((bool)(this["ConsoleOutputEnabled"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("60")]
+        public int FilterOutSeconds {
+            get {
+                return ((int)(this["FilterOutSeconds"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool DatabaseEnabled {
+            get {
+                return ((bool)(this["DatabaseEnabled"]));
+            }
+        }
     }
 }

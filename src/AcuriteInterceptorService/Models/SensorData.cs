@@ -27,7 +27,7 @@ namespace AcuriteInterceptorService
 		public string Battery { get; set; }
 		public int Rssi { get; set; }
 		
-		public decimal Temperature { get => Math.Round((TempF - 32) * 5 / 9, 1); set { } }
-		public int Pressure { get => (int)Math.Round(BaromIn * MIN2Millibar); set { } }
+		public decimal Temperature { get => Math.Round((TempF - 32) * 5 / 9, 1, MidpointRounding.ToEven); set { } }
+		public int Pressure { get => (int)Math.Round(BaromIn * MIN2Millibar, MidpointRounding.ToEven); set { } }
 	}
 }

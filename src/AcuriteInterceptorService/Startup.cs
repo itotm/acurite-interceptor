@@ -7,7 +7,7 @@ using Owin;
 
 namespace AcuriteInterceptorService
 {
-    public class Startup
+	public class Startup
     {
         public void Configuration(IAppBuilder app)
         {
