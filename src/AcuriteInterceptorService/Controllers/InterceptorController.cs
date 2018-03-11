@@ -27,6 +27,12 @@ namespace AcuriteInterceptorService
 				//Console.WriteLine(response.Content.ReadAsStringAsync().Result);
 			}
 
+			using (var db = new WeatherDbContext())
+			{
+				db.SensorDatas.Add(data);
+				db.SaveChanges();
+			}
+
 			return Ok(Settings.Default.AcuriteApiResponse);
 		}
 	}

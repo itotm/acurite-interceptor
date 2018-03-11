@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
@@ -7,9 +8,12 @@ using System.Threading.Tasks;
 
 namespace AcuriteInterceptorService
 {
+	[Table("SensorData")]
 	public class SensorData
 	{
 		private const decimal MIN2Millibar = 33.8637526m;
+
+		[Key] public int SensorDataID { get; set; }
 
 		[NotMapped] public string DateUtc { get; set; }
 		[NotMapped] public string Action { get; set; }
