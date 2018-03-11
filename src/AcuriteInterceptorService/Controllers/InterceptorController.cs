@@ -23,8 +23,8 @@ namespace AcuriteInterceptorService
 			if (Settings.Default.ForwardEnabled)
 			{
 				HttpClient client = new HttpClient();
-				var response = client.GetAsync(Settings.Default.ForwardUri + Request.RequestUri.Query).Result;
-				//Console.WriteLine(response.Content.ReadAsStringAsync().Result);
+				var response = client.GetAsync(Settings.Default.ForwardUri + Request.RequestUri.Query);
+				//Console.WriteLine(response.Result.Content.ReadAsStringAsync().Result);
 			}
 
 			using (var db = new WeatherDbContext())

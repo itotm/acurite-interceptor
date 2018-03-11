@@ -21,13 +21,13 @@ namespace AcuriteInterceptorService
 		[NotMapped] public string Id { get; set; }
 		[NotMapped] public string Mt { get; set; }
 		public string Sensor { get; set; }
-		public decimal Humidity { get; set; }
+		public int Humidity { get; set; }
 		[NotMapped] public decimal TempF { get; set; }
 		[NotMapped] public decimal BaromIn { get; set; }
 		public string Battery { get; set; }
 		public int Rssi { get; set; }
 		
-		public decimal Temperature { get => (TempF - 32) * 5 / 9; set => TempF = value * 9 / 5 + 32; }
-		public decimal Pressure { get => BaromIn * MIN2Millibar; set => BaromIn = value / MIN2Millibar; }
+		public decimal Temperature { get => Math.Round((TempF - 32) * 5 / 9, 1); set { } }
+		public int Pressure { get => (int)Math.Round(BaromIn * MIN2Millibar); set { } }
 	}
 }

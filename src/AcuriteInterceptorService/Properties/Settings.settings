@@ -12,7 +12,7 @@
       <Value Profile="(Default)">{ "checkversion":"224" }</Value>
     </Setting>
     <Setting Name="ConsoleOutputEnabled" Type="System.Boolean" Scope="Application">
-      <Value Profile="(Default)">True</Value>
+      <Value Profile="(Default)">False</Value>
     </Setting>
   </Settings>
 </SettingsFile>
