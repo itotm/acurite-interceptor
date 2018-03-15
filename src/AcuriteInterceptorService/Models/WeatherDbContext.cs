@@ -10,6 +10,7 @@ namespace AcuriteInterceptorService
 	public class WeatherDbContext : DbContext
 	{
 		public DbSet<SensorData> SensorDatas { get; set; }
+		public DbSet<PressureData> PressureDatas { get; set; }
 
 		public WeatherDbContext() : base("Weather")
 		{
